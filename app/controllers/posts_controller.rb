@@ -4,10 +4,17 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    current_span = OpenTelemetry::Trace.current_span
+    current_span.set_attribute("user.id", "we-are-here")
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    tracer = OpenTelemetry.tracer_provider.tracer('my-tracer')
+    tracer.in_span("expensive-query") do |span|
+      # ... cool stuff
+      span.set_attribute('coolness', 100)
+    end
   end
 
   # GET /posts/new
