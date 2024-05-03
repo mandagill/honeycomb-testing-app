@@ -1,0 +1,257 @@
+Started GET "/posts" for 127.0.0.1 at 2024-04-23 18:10:23 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+
+# start
+#   name="hc_testing_app_development",
+#   scope=PG
+#   "db.statement"=>";"
+#<struct OpenTelemetry::SDK::Trace::SpanData
+ name="hc_testing_app_development",
+ kind=:client,
+ status=#<OpenTelemetry::Trace::Status:0x00000001092b31f8 @code=1, @description="">,
+ parent_span_id="NG>\x11\xD5\x98p\xE9",
+ total_recorded_attributes=6,
+ total_recorded_events=0,
+ total_recorded_links=0,
+ start_timestamp=1713910223853616000,
+ end_timestamp=1713910223853725000,
+ attributes=
+  {"db.system"=>"postgresql",
+   "db.user"=>"bcarreno",
+   "db.name"=>"hc_testing_app_development",
+   "net.sock.family"=>"unix",
+   "net.peer.name"=>"/tmp",
+   "db.statement"=>";"},
+ links=nil,
+ events=nil,
+ resource=
+  #<OpenTelemetry::SDK::Resources::Resource:0x00000001259cb0c8
+   @attributes=
+    {"service.name"=>"HcTestingApp",
+     "process.pid"=>43901,
+     "process.command"=>"bin/rails",
+     "process.runtime.name"=>"ruby",
+     "process.runtime.version"=>"3.3.0",
+     "process.runtime.description"=>"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin23]",
+     "telemetry.sdk.name"=>"opentelemetry",
+     "telemetry.sdk.language"=>"ruby",
+     "telemetry.sdk.version"=>"1.4.1"}>,
+ instrumentation_scope=
+  #<struct OpenTelemetry::SDK::InstrumentationScope name="OpenTelemetry::Instrumentation::PG", version="0.27.1">,
+ span_id="K8\x13\x94\xEE\xE8<\xB5",
+ trace_id="/m\xEEk\xB6\xE7\x8A\xF2\xE6B\xDE#Z\xBC\xE6g",
+ trace_flags=#<OpenTelemetry::Trace::TraceFlags:0x0000000125393188 @flags=1>,
+ tracestate=#<OpenTelemetry::Trace::Tracestate:0x0000000125391018 @hash={}>>
+# end
+
+# start
+#   name="SELECT hc_testing_app_development",
+#   scope=PG
+#   "db.statement"=>"SELECT \"posts\".* FROM \"posts\""},
+#<struct OpenTelemetry::SDK::Trace::SpanData
+ name="SELECT hc_testing_app_development",
+ kind=:client,
+ status=#<OpenTelemetry::Trace::Status:0x00000001092b31f8 @code=1, @description="">,
+ parent_span_id="NG>\x11\xD5\x98p\xE9",
+ total_recorded_attributes=7,
+ total_recorded_events=0,
+ total_recorded_links=0,
+ start_timestamp=1713910223856248000,
+ end_timestamp=1713910223856451000,
+ attributes=
+  {"db.system"=>"postgresql",
+   "db.user"=>"bcarreno",
+   "db.name"=>"hc_testing_app_development",
+   "net.sock.family"=>"unix",
+   "net.peer.name"=>"/tmp",
+   "db.operation"=>"SELECT",
+   "db.statement"=>"SELECT \"posts\".* FROM \"posts\""},
+ links=nil,
+ events=nil,
+ resource=
+  #<OpenTelemetry::SDK::Resources::Resource:0x00000001259cb0c8
+   @attributes=
+    {"service.name"=>"HcTestingApp",
+     "process.pid"=>43901,
+     "process.command"=>"bin/rails",
+     "process.runtime.name"=>"ruby",
+     "process.runtime.version"=>"3.3.0",
+     "process.runtime.description"=>"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin23]",
+     "telemetry.sdk.name"=>"opentelemetry",
+     "telemetry.sdk.language"=>"ruby",
+     "telemetry.sdk.version"=>"1.4.1"}>,
+ instrumentation_scope=
+  #<struct OpenTelemetry::SDK::InstrumentationScope name="OpenTelemetry::Instrumentation::PG", version="0.27.1">,
+ span_id="\xE2B\xE6\x9C\xD6\xF3\xF5\x01",
+ trace_id="/m\xEEk\xB6\xE7\x8A\xF2\xE6B\xDE#Z\xBC\xE6g",
+ trace_flags=#<OpenTelemetry::Trace::TraceFlags:0x0000000125393188 @flags=1>,
+ tracestate=#<OpenTelemetry::Trace::Tracestate:0x0000000125391018 @hash={}>>
+# end
+  Post Load (5.1ms)  SELECT "posts".* FROM "posts"
+  ↳ app/views/posts/index.html.erb:6
+
+# start
+#   name="action_view render_partial",
+#   scope=ActionView
+#   "identifier"=>"/Users/bcarreno/prj/honeycomb-testing-app/app/views/posts/_post.html.erb"
+#<struct OpenTelemetry::SDK::Trace::SpanData
+ name="action_view render_partial",
+ kind=:internal,
+ status=#<OpenTelemetry::Trace::Status:0x00000001092b31f8 @code=1, @description="">,
+ parent_span_id="NG>\x11\xD5\x98p\xE9",
+ total_recorded_attributes=1,
+ total_recorded_events=0,
+ total_recorded_links=0,
+ start_timestamp=1713910223859459000,
+ end_timestamp=1713910223859562000,
+ attributes={"identifier"=>"/Users/bcarreno/prj/honeycomb-testing-app/app/views/posts/_post.html.erb"},
+ links=nil,
+ events=nil,
+ resource=
+  #<OpenTelemetry::SDK::Resources::Resource:0x00000001259cb0c8
+   @attributes=
+    {"service.name"=>"HcTestingApp",
+     "process.pid"=>43901,
+     "process.command"=>"bin/rails",
+     "process.runtime.name"=>"ruby",
+     "process.runtime.version"=>"3.3.0",
+     "process.runtime.description"=>"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin23]",
+     "telemetry.sdk.name"=>"opentelemetry",
+     "telemetry.sdk.language"=>"ruby",
+     "telemetry.sdk.version"=>"1.4.1"}>,
+ instrumentation_scope=
+  #<struct OpenTelemetry::SDK::InstrumentationScope name="OpenTelemetry::Instrumentation::ActionView", version="0.7.0">,
+ span_id="\xEA\x8E4\x99\xB2\x06\x81\xD3",
+ trace_id="/m\xEEk\xB6\xE7\x8A\xF2\xE6B\xDE#Z\xBC\xE6g",
+ trace_flags=#<OpenTelemetry::Trace::TraceFlags:0x0000000125393188 @flags=1>,
+ tracestate=#<OpenTelemetry::Trace::Tracestate:0x0000000125391018 @hash={}>>
+# end
+  Rendered posts/_post.html.erb (Duration: 1.9ms | Allocations: 1009)
+
+# start
+#   name="action_view render_template",
+#   scope=ActionView
+#   "/Users/bcarreno/prj/honeycomb-testing-app/app/views/posts/index.html.erb",
+#   "identifier"=>"/Users/bcarreno/prj/honeycomb-testing-app/app/views/posts/index.html.erb",
+#<struct OpenTelemetry::SDK::Trace::SpanData
+ name="action_view render_template",
+ kind=:internal,
+ status=#<OpenTelemetry::Trace::Status:0x00000001092b31f8 @code=1, @description="">,
+ parent_span_id="\xC4\x83\x18\xAF\n" + "M\xE2\xFC",
+ total_recorded_attributes=2,
+ total_recorded_events=0,
+ total_recorded_links=0,
+ start_timestamp=1713910223852003000,
+ end_timestamp=1713910223861666000,
+ attributes=
+  {"identifier"=>"/Users/bcarreno/prj/honeycomb-testing-app/app/views/posts/index.html.erb",
+   "layout"=>"layouts/application"},
+ links=nil,
+ events=nil,
+ resource=
+  #<OpenTelemetry::SDK::Resources::Resource:0x00000001259cb0c8
+   @attributes=
+    {"service.name"=>"HcTestingApp",
+     "process.pid"=>43901,
+     "process.command"=>"bin/rails",
+     "process.runtime.name"=>"ruby",
+     "process.runtime.version"=>"3.3.0",
+     "process.runtime.description"=>"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin23]",
+     "telemetry.sdk.name"=>"opentelemetry",
+     "telemetry.sdk.language"=>"ruby",
+     "telemetry.sdk.version"=>"1.4.1"}>,
+ instrumentation_scope=
+  #<struct OpenTelemetry::SDK::InstrumentationScope name="OpenTelemetry::Instrumentation::ActionView", version="0.7.0">,
+ span_id="NG>\x11\xD5\x98p\xE9",
+ trace_id="/m\xEEk\xB6\xE7\x8A\xF2\xE6B\xDE#Z\xBC\xE6g",
+ trace_flags=#<OpenTelemetry::Trace::TraceFlags:0x0000000125393188 @flags=1>,
+ tracestate=#<OpenTelemetry::Trace::Tracestate:0x0000000125391018 @hash={}>>
+# end
+  Rendered posts/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 5610)
+
+# start
+#   name="action_view render_layout",
+#   scope=ActionView
+#   "identifier"=>"/Users/bcarreno/prj/honeycomb-testing-app/app/views/layouts/application.html.erb"},
+#<struct OpenTelemetry::SDK::Trace::SpanData
+ name="action_view render_layout",
+ kind=:internal,
+ status=#<OpenTelemetry::Trace::Status:0x00000001092b31f8 @code=1, @description="">,
+ parent_span_id="\xF9\xAA)\xDA]?\xF4\xEA",
+ total_recorded_attributes=1,
+ total_recorded_events=0,
+ total_recorded_links=0,
+ start_timestamp=1713910223851880000,
+ end_timestamp=1713910223865852000,
+ attributes={"identifier"=>"/Users/bcarreno/prj/honeycomb-testing-app/app/views/layouts/application.html.erb"},
+ links=nil,
+ events=nil,
+ resource=
+  #<OpenTelemetry::SDK::Resources::Resource:0x00000001259cb0c8
+   @attributes=
+    {"service.name"=>"HcTestingApp",
+     "process.pid"=>43901,
+     "process.command"=>"bin/rails",
+     "process.runtime.name"=>"ruby",
+     "process.runtime.version"=>"3.3.0",
+     "process.runtime.description"=>"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin23]",
+     "telemetry.sdk.name"=>"opentelemetry",
+     "telemetry.sdk.language"=>"ruby",
+     "telemetry.sdk.version"=>"1.4.1"}>,
+ instrumentation_scope=
+  #<struct OpenTelemetry::SDK::InstrumentationScope name="OpenTelemetry::Instrumentation::ActionView", version="0.7.0">,
+ span_id="\xC4\x83\x18\xAF\n" + "M\xE2\xFC",
+ trace_id="/m\xEEk\xB6\xE7\x8A\xF2\xE6B\xDE#Z\xBC\xE6g",
+ trace_flags=#<OpenTelemetry::Trace::TraceFlags:0x0000000125393188 @flags=1>,
+ tracestate=#<OpenTelemetry::Trace::Tracestate:0x0000000125391018 @hash={}>>
+# end
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 7723)
+Completed 200 OK in 17ms (Views: 11.2ms | ActiveRecord: 5.1ms | Allocations: 8003)
+
+# start
+#   name="PostsController#index",
+#   scope=Rack
+#   "http.method"=>"GET",
+#   "http.target"=>"/posts",
+#<struct OpenTelemetry::SDK::Trace::SpanData
+ name="PostsController#index",
+ kind=:server,
+ status=#<OpenTelemetry::Trace::Status:0x00000001092b31f8 @code=1, @description="">,
+ parent_span_id="\x00\x00\x00\x00\x00\x00\x00\x00",
+ total_recorded_attributes=8,
+ total_recorded_events=0,
+ total_recorded_links=0,
+ start_timestamp=1713910223840539000,
+ end_timestamp=1713910223868957000,
+ attributes=
+  {"http.method"=>"GET",
+   "http.host"=>"localhost:3000",
+   "http.scheme"=>"http",
+   "http.target"=>"/posts",
+   "http.user_agent"=>"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0",
+   "code.namespace"=>"PostsController",
+   "code.function"=>"index",
+   "http.status_code"=>200},
+ links=nil,
+ events=nil,
+ resource=
+  #<OpenTelemetry::SDK::Resources::Resource:0x00000001259cb0c8
+   @attributes=
+    {"service.name"=>"HcTestingApp",
+     "process.pid"=>43901,
+     "process.command"=>"bin/rails",
+     "process.runtime.name"=>"ruby",
+     "process.runtime.version"=>"3.3.0",
+     "process.runtime.description"=>"ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin23]",
+     "telemetry.sdk.name"=>"opentelemetry",
+     "telemetry.sdk.language"=>"ruby",
+     "telemetry.sdk.version"=>"1.4.1"}>,
+ instrumentation_scope=
+  #<struct OpenTelemetry::SDK::InstrumentationScope name="OpenTelemetry::Instrumentation::Rack", version="0.24.1">,
+ span_id="\xF9\xAA)\xDA]?\xF4\xEA",
+ trace_id="/m\xEEk\xB6\xE7\x8A\xF2\xE6B\xDE#Z\xBC\xE6g",
+ trace_flags=#<OpenTelemetry::Trace::TraceFlags:0x0000000125393188 @flags=1>,
+ tracestate=#<OpenTelemetry::Trace::Tracestate:0x0000000125391018 @hash={}>>
+# end
