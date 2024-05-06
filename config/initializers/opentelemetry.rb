@@ -4,4 +4,5 @@ require 'opentelemetry/instrumentation/all'
 
 OpenTelemetry::SDK.configure do |c|
     c.use_all() # enables all instrumentation!
+    c.logger.level = :debug
 end
