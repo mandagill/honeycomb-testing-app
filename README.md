@@ -13,12 +13,17 @@ export YOUR_HC_API_KEY="your-secret-key-here"
 [link to documentation here]
 
 ```bash
+docker debug \
 docker run \
-  -v opentelemetry-collector.yaml \
+  --rm \
+  --name otel-collector \
+  -v ./opentelemetry-collector.yaml:/opentelemetry-collector.yaml \
+  -e YOUR_HC_API_KEY=$YOUR_HC_API_KEY \
   -p 127.0.0.1:4317:4317 \
   -p 127.0.0.1:4318:4318 \
   -p 127.0.0.1:55679:55679 \
-  otel/opentelemetry-collector:0.99.0
+  otel/opentelemetry-collector:0.99.0 \
+  --config=/opentelemetry-collector.yaml
 # leave this command running, it'll display the log
 ```
 
