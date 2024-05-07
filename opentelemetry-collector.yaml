@@ -43,6 +43,8 @@ processors:
   batch:
 
 exporters:
+# this is where we would define a Datadog exporter
+# if we wished to send data to both places
   otlp:
     endpoint: "api.honeycomb.io:443"
     headers:
@@ -59,23 +61,23 @@ exporters:
 service:
   telemetry:
     logs:
-      level: "error"
+      level: "info"
 
   pipelines:
 
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logging]
+      exporters: [otlp]
 
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [logging]
+    # metrics:
+    #   receivers: [otlp]
+    #   processors: [batch]
+    #   exporters: [logging]
 
-    logs:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [logging]
+    # logs:
+    #   receivers: [otlp]
+    #   processors: [batch]
+    #   exporters: [logging]
 
   extensions: [health_check, pprof, zpages]
