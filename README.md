@@ -2,7 +2,10 @@
 
 ## Get an API key from Honeycomb
 
-[link to documentation here]
+https://docs.honeycomb.io/get-started/configure/environments/manage-api-keys/
+
+You should use an ingest key as these have less privileges than configuration keys.
+In our case, our ingest key starts with "hca" and has 64 characters.
 
 ```bash
 export YOUR_HC_API_KEY="your-secret-key-here"
@@ -24,7 +27,7 @@ docker run --rm --name collector-159pm -e YOUR_HC_API_KEY=$YOUR_HC_API_KEY \
 
 ## Send test telemetry data
 
-[link to telemetrygen documentation here]
+https://opentelemetry.io/docs/collector/quick-start/
 
 ```bash
 telemetrygen traces --otlp-http  --otlp-insecure --otlp-endpoint "localhost:4318" --traces 10
@@ -39,11 +42,16 @@ Span #19
     ID             : ef773ed9597deb32
 ```
 
+Also, the counters displayed on http://localhost:55679/debug/tracez should increase as
+you generate more traces with the telemetrygen command.
+
 ## Start Rails application
 
 ```bash
-OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318" bin/rails server
-OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/json
+export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
+export OTEL_EXPORTER_OTLP_PROTOCOL="http/json"
+export OTEL_EXPORTER_OTLP_TRACES_PROTOCOL="http/json"
+bin/rails server
 ```
 
 Point browser to [http://localhost:3000/posts](http://localhost:3000/posts) and do some activity.
