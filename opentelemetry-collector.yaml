@@ -43,20 +43,25 @@ processors:
   batch:
 
 exporters:
+# this is where we would define a Datadog exporter
+# if we wished to send data to both places
   otlp:
     endpoint: "api.honeycomb.io:443"
     headers:
-      "x-honeycomb-team": $YOUR_HC_API_KEY
+      "x-honeycomb-team": ${YOUR_HC_API_KEY}
   otlp/metrics:
     endpoint: "api.honeycomb.io:443" # US instance
     #endpoint: "api.eu1.honeycomb.io:443" # EU instance
     headers:
-      "x-honeycomb-team": $YOUR_HC_API_KEY
+      "x-honeycomb-team": ${YOUR_HC_API_KEY}
+  logging:
+    verbosity: detailed
+  
 
 service:
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
 
   pipelines:
 
@@ -65,14 +70,14 @@ service:
       processors: [batch]
       exporters: [otlp]
 
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [otlp]
+    # metrics:
+    #   receivers: [otlp]
+    #   processors: [batch]
+    #   exporters: [logging]
 
-    logs:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [otlp]
+    # logs:
+    #   receivers: [otlp]
+    #   processors: [batch]
+    #   exporters: [logging]
 
   extensions: [health_check, pprof, zpages]
