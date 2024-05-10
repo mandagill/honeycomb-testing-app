@@ -14,11 +14,8 @@ export YOUR_HC_API_KEY="your-secret-key-here"
 
 ```bash
 docker debug \
-docker run \
-  --rm \
-  --name otel-collector \
+docker run --rm --name collector-159pm -e YOUR_HC_API_KEY=$YOUR_HC_API_KEY \
   -v ./opentelemetry-collector.yaml:/opentelemetry-collector.yaml \
-  -e YOUR_HC_API_KEY=$YOUR_HC_API_KEY \
   -p 127.0.0.1:4317:4317 \
   -p 127.0.0.1:4318:4318 \
   -p 127.0.0.1:55679:55679 \
@@ -29,7 +26,7 @@ docker run \
 
 ## Send test telemetry data
 
-[link to telemetrygen documentation here]
+https://opentelemetry.io/docs/collector/quick-start/
 
 ```bash
 telemetrygen traces --otlp-http  --otlp-insecure --otlp-endpoint "localhost:4318" --traces 10
@@ -47,7 +44,10 @@ Span #19
 ## Start Rails application
 
 ```bash
-OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318" bin/rails server
+export OTEL_EXPORTER_OTLP_PROTOCOL="http/json"
+export OTEL_EXPORTER_OTLP_TRACES_PROTOCOL="http/json"
+export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
+bin/rails server
 ```
 
 Point browser to [http://localhost:3000/posts](http://localhost:3000/posts) and do some activity.

@@ -52,6 +52,8 @@ exporters:
     #endpoint: "api.eu1.honeycomb.io:443" # EU instance
     headers:
       "x-honeycomb-team": ${YOUR_HC_API_KEY}
+  logging:
+    verbosity: detailed
 
 service:
   telemetry:
