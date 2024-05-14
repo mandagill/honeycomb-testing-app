@@ -61,14 +61,14 @@ exporters:
 service:
   telemetry:
     logs:
-      level: "info"
+      level: "debug"
 
   pipelines:
 
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [otlp]
+      exporters: [otlp, logging]
 
     # metrics:
     #   receivers: [otlp]
