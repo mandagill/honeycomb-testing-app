@@ -40,7 +40,11 @@ receivers:
     endpoint: 0.0.0.0:9411
 
 processors:
-  batch:
+  attributes/update:
+    actions:
+        - key: http.method
+          value: redacted
+          action: update
 
 exporters:
 # this is where we would define a Datadog exporter
@@ -67,7 +71,7 @@ service:
 
     traces:
       receivers: [otlp]
-      processors: [batch]
+      processors: [attributes/update]
       exporters: [otlp, logging]
 
     # metrics:
