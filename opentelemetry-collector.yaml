@@ -40,11 +40,11 @@ receivers:
     endpoint: 0.0.0.0:9411
 
 processors:
-  attributes/update:
-    actions:
-        - key: http.method
-          value: redacted
-          action: update
+  redaction:
+    allow_all_keys: false
+    allowed_keys:
+      - process.command
+    summary: debug
 
 exporters:
 # this is where we would define a Datadog exporter
@@ -68,10 +68,9 @@ service:
       level: "debug"
 
   pipelines:
-
     traces:
       receivers: [otlp]
-      processors: [attributes/update]
+      processors: [redaction]
       exporters: [otlp, logging]
 
     # metrics:
